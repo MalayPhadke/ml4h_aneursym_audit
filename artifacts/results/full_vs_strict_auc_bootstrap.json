@@ -1,0 +1,22 @@
+{
+  "comparison": "strict removal minus full-data test AUC",
+  "paired_test_patch_count": 1136,
+  "test_patient_count": 267,
+  "full_auc": 0.9671235487996852,
+  "strict_auc": 0.9589236521054703,
+  "observed_delta_strict_minus_full": -0.008199896694214948,
+  "bootstrap_resamples": 20000,
+  "seed": 42,
+  "patch_bootstrap_delta_percentiles_2.5_50_97.5": [
+    -0.020078350299350355,
+    -0.007813500709723309,
+    0.0010690478203554898
+  ],
+  "patient_cluster_bootstrap_delta_percentiles_2.5_50_97.5": [
+    -0.019176052683763163,
+    -0.007771411016617602,
+    0.0005488769999400792
+  ],
+  "patient_cluster_probability_delta_ge_zero": 0.03585,
+  "interpretation": "A CI containing zero does not establish equivalence; it means this single-run paired test set does not resolve the AUC difference from zero."
+}

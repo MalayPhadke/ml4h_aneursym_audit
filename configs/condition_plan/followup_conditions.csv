@@ -1,0 +1,4 @@
+phase,condition_id,mode,score,negative_fraction,direction,seed
+3,b1_combined_radial_10,combined,radial_slope,0.10,high,42
+5,b3_seed43_b1_neg_radial_high_10,negative,radial_slope,0.10,high,43
+5,b3_seed44_b1_neg_radial_high_10,negative,radial_slope,0.10,high,44

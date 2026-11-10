@@ -1,0 +1,7 @@
+class,subset,total_n,finite_gradcam_rar_n,undefined_gradcam_rar_n,finite_ig_summary_n,undefined_ig_summary_n,finite_paired_gradcam_ig_n,undefined_paired_n,ig_exact_zero_n,gradcam_exact_zero_n
+positive,all,168,168,0,134,34,134,34,34,0
+positive,raw_zero,34,34,0,0,34,0,34,34,0
+positive,nonzero,134,134,0,134,0,134,0,0,0
+frangi,all,532,532,0,531,1,531,1,1,0
+hard,all,276,276,0,276,0,276,0,0,0
+easy,all,160,160,0,160,0,160,0,0,0

@@ -1,0 +1,17 @@
+{
+  "raw_zero_positive_test_n": 34,
+  "raw_zero_positive_ids_sha256": "8ac0a9842879da37cb73f3510fac9554be824841aa02458e694d22f42ded7e3d",
+  "outputs": [
+    "attribution_agreement_test.csv",
+    "bootstrap_membership_audit.csv",
+    "clean_test_bootstrap.csv",
+    "clean_test_bootstrap_summary.csv",
+    "clean_test_metrics.csv",
+    "fig_attribution_agreement_clean_positive.pdf",
+    "fig_original_vs_clean_test.pdf",
+    "finite_map_counts.csv",
+    "static_analysis_summary.json",
+    "table1_revised.csv"
+  ],
+  "note": "The clean test excludes exactly 34 strict raw-zero positives and retains the raw-zero Frangi negative excluded by the older 35-patch nondegenerate diagnostic."
+}

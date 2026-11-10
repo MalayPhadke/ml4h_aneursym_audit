@@ -1,0 +1,14 @@
+bootstrap_name,n_patients,n_patches,n_positive,n_raw_zero_positive,undefined_policy,patch_ids_sha256
+auc_original_full_vs_strict,267,1136,168,34,not applicable; all frozen-test predictions included,f9e8f98a2bcbe4eecdd8d22e0154cbb6ece531fd8b3ee1691d15578859d443c8
+auc_clean_full_vs_strict,266,1102,134,0,34 strict raw-zero positives excluded before patient resampling,09024961714f4cc4bcbb17ccd736297342702e7a709d561096984256783c19f5
+gradcam_rar_test_positive,138,168,168,34,undefined GradCAM++ RAR excluded before patient resampling,2183d0ba958a7eee40e364de90c795f690d312acf5daf4001a03efcdd6d7b483
+gradcam_rar_test_frangi,266,532,0,0,undefined GradCAM++ RAR excluded before patient resampling,03d02cb87cb750b2c5a0c043bb99a7da5b72227d269250dc3936ff62f1e22b17
+gradcam_rar_test_hard,103,276,0,0,undefined GradCAM++ RAR excluded before patient resampling,1cfc72e3b40a633f20b8b90d678efc4faf9d6b20dc23cfad13a159341ff5b089
+gradcam_rar_test_easy,131,160,0,0,undefined GradCAM++ RAR excluded before patient resampling,b0f1066db6b83c832c30989a8afe4b28fa7eaaf15beade595f9f35525d267c11
+spearman_test_positive_all,107,134,134,0,non-finite GradCAM++/IG pairs excluded before patient resampling,7484aeff835b91bd6bc18c56305730128a16910718e8870c27e889bcdfc373f2
+spearman_test_positive_raw_zero,0,0,0,0,non-finite GradCAM++/IG pairs excluded before patient resampling,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+spearman_test_positive_nonzero,107,134,134,0,non-finite GradCAM++/IG pairs excluded before patient resampling,7484aeff835b91bd6bc18c56305730128a16910718e8870c27e889bcdfc373f2
+spearman_test_pooled_negatives,266,967,0,0,non-finite GradCAM++/IG pairs excluded before patient resampling,779e4616816fbd0e2a18533f565e6e27d7037afa757a610d98f3f6bfce8f5e2f
+spearman_test_frangi,266,531,0,0,non-finite GradCAM++/IG pairs excluded before patient resampling,252f527b05aa6ecd8fb8a32b76815b6d2eadc99156e50936311ee1ecff87db87
+spearman_test_hard,103,276,0,0,non-finite GradCAM++/IG pairs excluded before patient resampling,1cfc72e3b40a633f20b8b90d678efc4faf9d6b20dc23cfad13a159341ff5b089
+spearman_test_easy,131,160,0,0,non-finite GradCAM++/IG pairs excluded before patient resampling,b0f1066db6b83c832c30989a8afe4b28fa7eaaf15beade595f9f35525d267c11

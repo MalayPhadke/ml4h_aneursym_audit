@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+data/patches/
+outputs/
+legacy_outputs/
+*.pth
+.venv/
+*.egg-info/
+outputs_repro/

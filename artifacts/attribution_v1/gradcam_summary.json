@@ -1,0 +1,25 @@
+{
+  "method": "gradcam",
+  "n_manifest": 7742,
+  "n_rows": 7742,
+  "coverage_complete": true,
+  "duplicate_patch_ids": 0,
+  "counts_by_split": {
+    "val": 1115,
+    "train": 5491,
+    "test": 1136
+  },
+  "counts_by_class": {
+    "frangi": 3576,
+    "easy": 1178,
+    "hard": 1787,
+    "positive": 1201
+  },
+  "manifest_mapping_sha256": "dd11fed82c60a86a3bbb3704359147803c0267d498dde952fee64b4ad1a5456c",
+  "manifest_file_sha256": "2a28f92957fd644c1f2e0330bc17e3f7e9f3f18dfc31d0f7796848d9bac996de",
+  "checkpoint": "CDEL_PIPELINE/baseline_v1/best_checkpoint.pth",
+  "checkpoint_sha256": "753b880a408b5d7f46fb6e1cc36f376c20e0cb9fe3291c08f7363c0a6f0eadf5",
+  "target_class": 1,
+  "ig_steps": null,
+  "ig_alpha_chunk": null
+}

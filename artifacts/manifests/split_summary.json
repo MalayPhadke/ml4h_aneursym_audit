@@ -1,0 +1,51 @@
+{
+  "n_patches": 7742,
+  "n_patients": 1793,
+  "patch_counts_by_split_and_class": {
+    "train": {
+      "easy": 856,
+      "frangi": 2506,
+      "hard": 1261,
+      "positive": 868
+    },
+    "val": {
+      "easy": 162,
+      "frangi": 538,
+      "hard": 250,
+      "positive": 165
+    },
+    "test": {
+      "easy": 160,
+      "frangi": 532,
+      "hard": 276,
+      "positive": 168
+    }
+  },
+  "patient_counts_by_split": {
+    "train": 1256,
+    "val": 270,
+    "test": 267
+  },
+  "patient_overlap_counts": {
+    "train_val": 0,
+    "train_test": 0,
+    "val_test": 0
+  },
+  "seed": 42,
+  "ratios": {
+    "train": 0.7,
+    "val": 0.15,
+    "test": 0.15
+  },
+  "grouping_unit": "patient_id parsed from patch filename",
+  "stratification_target": "four patch classes",
+  "hashes": {
+    "algorithm": "sha256",
+    "seed": 42,
+    "protocol": "StratifiedGroupKFold(20): folds 0-13 train, 14-16 val, 17-19 test",
+    "manifest_mapping_sha256": "dd11fed82c60a86a3bbb3704359147803c0267d498dde952fee64b4ad1a5456c",
+    "train_patch_ids_sha256": "26a0bd83e7e9bffd0e859fcc5331f10a4b7f4f951b59564a82f91536d561d1b6",
+    "val_patch_ids_sha256": "553c6d4ca73996af211b9d0d8b8455e24c4f076ec805bbaade1dd71982568784",
+    "test_patch_ids_sha256": "f9e8f98a2bcbe4eecdd8d22e0154cbb6ece531fd8b3ee1691d15578859d443c8"
+  }
+}

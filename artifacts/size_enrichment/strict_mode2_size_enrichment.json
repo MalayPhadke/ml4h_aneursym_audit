@@ -1,0 +1,186 @@
+{
+  "status": "PASS_ENRICHMENT_REPRODUCED_WITH_CORRECTED_EFFECT_SIZE",
+  "primary_question": "Are explicitly linked strict raw-zero Mode-2 positive patches enriched for estimated dome size <3 mm?",
+  "identity_contract": {
+    "attribution": "CDEL_PIPELINE/phase0_gates/attribution_per_patch.csv",
+    "size_table": "aneurysm_size_estimates_v3.csv",
+    "join": "Path(attribution.patch_id).stem == size.patch_id",
+    "positional_linkage_used": false,
+    "positive_attribution_n": 1201,
+    "unique_size_ids_n": 1201,
+    "exact_id_set_match": true,
+    "missing_ids_n": 0,
+    "extra_ids_n": 0,
+    "strict_definition": "mode2_strict_exact_zero == 1 (exact radial_slope==0 plus exact-zero IG map; raw-zero status independently audited in Phase 0)",
+    "small_definition": "Dome_mm_estimate < 3.0; verified consistent with Size_Category for every row"
+  },
+  "corrected_results": {
+    "all": {
+      "n": 1201,
+      "table_rows": [
+        "strict_mode2",
+        "non_strict"
+      ],
+      "table_columns": [
+        "small_lt_3mm",
+        "non_small_ge_3mm"
+      ],
+      "table_2x2": [
+        [
+          204,
+          28
+        ],
+        [
+          738,
+          231
+        ]
+      ],
+      "strict_n": 232,
+      "strict_small_n": 204,
+      "strict_small_fraction": 0.8793103448275862,
+      "non_strict_n": 969,
+      "non_strict_small_n": 738,
+      "non_strict_small_fraction": 0.7616099071207431,
+      "odds_ratio_strict_vs_non_strict": 2.2804878048780486,
+      "odds_ratio_woolf_95ci": [
+        1.495777956276563,
+        3.4768694152596042
+      ],
+      "fisher_exact_two_sided_p": 5.712440014480767e-05
+    },
+    "train": {
+      "n": 868,
+      "table_rows": [
+        "strict_mode2",
+        "non_strict"
+      ],
+      "table_columns": [
+        "small_lt_3mm",
+        "non_small_ge_3mm"
+      ],
+      "table_2x2": [
+        [
+          146,
+          24
+        ],
+        [
+          530,
+          168
+        ]
+      ],
+      "strict_n": 170,
+      "strict_small_n": 146,
+      "strict_small_fraction": 0.8588235294117647,
+      "non_strict_n": 698,
+      "non_strict_small_n": 530,
+      "non_strict_small_fraction": 0.7593123209169055,
+      "odds_ratio_strict_vs_non_strict": 1.9283018867924528,
+      "odds_ratio_woolf_95ci": [
+        1.210883968676716,
+        3.0707716534316964
+      ],
+      "fisher_exact_two_sided_p": 0.005219411415814237
+    },
+    "val": {
+      "n": 165,
+      "table_rows": [
+        "strict_mode2",
+        "non_strict"
+      ],
+      "table_columns": [
+        "small_lt_3mm",
+        "non_small_ge_3mm"
+      ],
+      "table_2x2": [
+        [
+          25,
+          3
+        ],
+        [
+          105,
+          32
+        ]
+      ],
+      "strict_n": 28,
+      "strict_small_n": 25,
+      "strict_small_fraction": 0.8928571428571429,
+      "non_strict_n": 137,
+      "non_strict_small_n": 105,
+      "non_strict_small_fraction": 0.7664233576642335,
+      "odds_ratio_strict_vs_non_strict": 2.5396825396825395,
+      "odds_ratio_woolf_95ci": [
+        0.7194677390974954,
+        8.964943182107449
+      ],
+      "fisher_exact_two_sided_p": 0.2035140919790532
+    },
+    "test": {
+      "n": 168,
+      "table_rows": [
+        "strict_mode2",
+        "non_strict"
+      ],
+      "table_columns": [
+        "small_lt_3mm",
+        "non_small_ge_3mm"
+      ],
+      "table_2x2": [
+        [
+          33,
+          1
+        ],
+        [
+          103,
+          31
+        ]
+      ],
+      "strict_n": 34,
+      "strict_small_n": 33,
+      "strict_small_fraction": 0.9705882352941176,
+      "non_strict_n": 134,
+      "non_strict_small_n": 103,
+      "non_strict_small_fraction": 0.7686567164179104,
+      "odds_ratio_strict_vs_non_strict": 9.932038834951456,
+      "odds_ratio_woolf_95ci": [
+        1.3049656370492273,
+        75.59233179659785
+      ],
+      "fisher_exact_two_sided_p": 0.006059318264065912
+    }
+  },
+  "historical_comparison_not_for_reuse": {
+    "definition": "PAR-NaN broad Mode 2 via positional linkage",
+    "reported_table_rows": [
+      "Mode1",
+      "Mode2"
+    ],
+    "reported_table_columns": [
+      "Small (<3mm)",
+      "Non-small (Medium+Large)"
+    ],
+    "reported_table": [
+      [
+        658,
+        222
+      ],
+      [
+        284,
+        37
+      ]
+    ],
+    "stored_mode1_vs_mode2_odds_ratio": 0.38615,
+    "derived_mode2_vs_mode1_odds_ratio": 2.5896656534954405,
+    "note": "The draft OR approximately 2.88 is not reproduced by the surviving historical table (inverse OR approximately 2.59) and must be replaced, not carried forward."
+  },
+  "interpretation": {
+    "finding_survives": true,
+    "paper_claim": "Strict raw-zero corruption is enriched among positive patches with estimated dome size <3 mm.",
+    "all_positive_effect": "OR 2.28, Fisher p=5.71e-05",
+    "train_effect": "OR 1.93, Fisher p=0.00522",
+    "limits": [
+      "This is a patch-level association; repeated patches from a patient are not statistically independent.",
+      "Dome sizes are estimates from the existing size table, not a new blinded clinical remeasurement.",
+      "Association does not identify the upstream extraction mechanism that generated zero arrays."
+    ]
+  }
+}

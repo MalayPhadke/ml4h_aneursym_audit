@@ -1,0 +1,180 @@
+{
+  "condition": {
+    "phase": "4",
+    "condition_id": "b2_rand_pos170_seed45",
+    "mode": "positive_random_matched",
+    "score": "random",
+    "negative_fraction": "0.00",
+    "direction": "random",
+    "seed": "45",
+    "positive_remove_n": "170"
+  },
+  "gpu_model": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+  "best_epoch": 10,
+  "checkpoint": "CDEL_PIPELINE/conditions/b2_rand_pos170_seed45/best_checkpoint.pth",
+  "manifest_mapping_sha256": "dd11fed82c60a86a3bbb3704359147803c0267d498dde952fee64b4ad1a5456c",
+  "test_patch_ids_sha256": "f9e8f98a2bcbe4eecdd8d22e0154cbb6ece531fd8b3ee1691d15578859d443c8",
+  "train_selection_sha256": "9e049a2955035e392a502cb3944c5c3224e340c8eef3e90e5e194c3f40bb892e",
+  "base_train_n": 3460,
+  "retained_train_n": 3290,
+  "removed_train_n": 170,
+  "retained_fraction": 0.9508670520231214,
+  "negative_removed": 0,
+  "positive_removed": 170,
+  "retained_counts_by_class": {
+    "frangi": 868,
+    "easy": 856,
+    "hard": 868,
+    "positive": 698
+  },
+  "validation": {
+    "split": "val",
+    "coverage": {
+      "expected_n": 1115,
+      "actual_n": 1115,
+      "complete": true,
+      "duplicates": 0
+    },
+    "metrics": {
+      "all_negatives": {
+        "n": 1115,
+        "n_positive": 165,
+        "n_negative": 950,
+        "auc": 0.9777607655502393,
+        "fpr_at_90_sensitivity": 0.04105263157894737,
+        "achieved_sensitivity": 0.9090909090909091,
+        "threshold_at_90_sensitivity": 0.5088796615600586
+      },
+      "positive_vs_frangi": {
+        "n": 703,
+        "n_positive": 165,
+        "n_negative": 538,
+        "auc": 0.98652697983553,
+        "fpr_at_90_sensitivity": 0.00929368029739777,
+        "achieved_sensitivity": 0.9090909090909091,
+        "threshold_at_90_sensitivity": 0.5088796615600586
+      },
+      "positive_vs_hard": {
+        "n": 415,
+        "n_positive": 165,
+        "n_negative": 250,
+        "auc": 0.9899393939393939,
+        "fpr_at_90_sensitivity": 0.008,
+        "achieved_sensitivity": 0.9090909090909091,
+        "threshold_at_90_sensitivity": 0.5088796615600586
+      },
+      "positive_vs_easy": {
+        "n": 327,
+        "n_positive": 165,
+        "n_negative": 162,
+        "auc": 0.9298540965207632,
+        "fpr_at_90_sensitivity": 0.19753086419753085,
+        "achieved_sensitivity": 0.9090909090909091,
+        "threshold_at_90_sensitivity": 0.5088796615600586
+      }
+    },
+    "cas": {
+      "available": false,
+      "reason": "No valid paired/recentered CAS table supplied."
+    }
+  },
+  "test": {
+    "split": "test",
+    "coverage": {
+      "expected_n": 1136,
+      "actual_n": 1136,
+      "complete": true,
+      "duplicates": 0
+    },
+    "metrics": {
+      "all_negatives": {
+        "n": 1136,
+        "n_positive": 168,
+        "n_negative": 968,
+        "auc": 0.9655831857536403,
+        "fpr_at_90_sensitivity": 0.05785123966942149,
+        "achieved_sensitivity": 0.9047619047619048,
+        "threshold_at_90_sensitivity": 0.24296823143959045
+      },
+      "positive_vs_frangi": {
+        "n": 700,
+        "n_positive": 168,
+        "n_negative": 532,
+        "auc": 0.9758604099534551,
+        "fpr_at_90_sensitivity": 0.018796992481203006,
+        "achieved_sensitivity": 0.9047619047619048,
+        "threshold_at_90_sensitivity": 0.24296823143959045
+      },
+      "positive_vs_hard": {
+        "n": 444,
+        "n_positive": 168,
+        "n_negative": 276,
+        "auc": 0.9808165113871636,
+        "fpr_at_90_sensitivity": 0.007246376811594203,
+        "achieved_sensitivity": 0.9166666666666666,
+        "threshold_at_90_sensitivity": 0.2169639766216278
+      },
+      "positive_vs_easy": {
+        "n": 328,
+        "n_positive": 168,
+        "n_negative": 160,
+        "auc": 0.9051339285714286,
+        "fpr_at_90_sensitivity": 0.275,
+        "achieved_sensitivity": 0.9047619047619048,
+        "threshold_at_90_sensitivity": 0.24296823143959045
+      }
+    },
+    "cas": {
+      "available": false,
+      "reason": "No valid paired/recentered CAS table supplied."
+    }
+  },
+  "secondary_nondegenerate_test": {
+    "criterion": "exclude frozen-test patches whose raw resized NPZ is all-zero, identified by exact radial_slope==0 and audited in Phase 0",
+    "patch_ids_sha256": "e669e6b7029d0c3d763505799fedeaddc9508efb3b818d6b6883c899ef89d508",
+    "n_retained": 1101,
+    "n_excluded": 35,
+    "metrics": {
+      "all_negatives": {
+        "n": 1101,
+        "n_positive": 134,
+        "n_negative": 967,
+        "auc": 0.9578555001620647,
+        "fpr_at_90_sensitivity": 0.06928645294725956,
+        "achieved_sensitivity": 0.9029850746268657,
+        "threshold_at_90_sensitivity": 0.1575900763273239
+      },
+      "positive_vs_frangi": {
+        "n": 665,
+        "n_positive": 134,
+        "n_negative": 531,
+        "auc": 0.9715897911572083,
+        "fpr_at_90_sensitivity": 0.02448210922787194,
+        "achieved_sensitivity": 0.9029850746268657,
+        "threshold_at_90_sensitivity": 0.1575900763273239
+      },
+      "positive_vs_hard": {
+        "n": 410,
+        "n_positive": 134,
+        "n_negative": 276,
+        "auc": 0.9759490590525632,
+        "fpr_at_90_sensitivity": 0.018115942028985508,
+        "achieved_sensitivity": 0.9029850746268657,
+        "threshold_at_90_sensitivity": 0.1575900763273239
+      },
+      "positive_vs_easy": {
+        "n": 294,
+        "n_positive": 134,
+        "n_negative": 160,
+        "auc": 0.8810634328358209,
+        "fpr_at_90_sensitivity": 0.30625,
+        "achieved_sensitivity": 0.9029850746268657,
+        "threshold_at_90_sensitivity": 0.1575900763273239
+      }
+    }
+  },
+  "cas": {
+    "available": false,
+    "reason": "No valid paired/recentered CAS source data."
+  }
+}

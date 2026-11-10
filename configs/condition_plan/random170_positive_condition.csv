@@ -1,0 +1,2 @@
+phase,condition_id,mode,score,negative_fraction,direction,seed,positive_remove_n
+4,b2_rand_pos170_seed42,positive_random_matched,random,0.00,random,42,170

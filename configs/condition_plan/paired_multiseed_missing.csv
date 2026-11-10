@@ -1,0 +1,13 @@
+phase,condition_id,mode,score,negative_fraction,direction,seed,positive_remove_n,training_seed,selection_seed
+multiseed,ms_full_train43,full,none,0.00,none,43,0,43,42
+multiseed,ms_strict_train43,positive,mode2_strict,0.00,fixed,43,0,43,42
+multiseed,ms_random170_train43_sel42,positive_random_matched,random,0.00,random,43,170,43,42
+multiseed,ms_full_train44,full,none,0.00,none,44,0,44,42
+multiseed,ms_strict_train44,positive,mode2_strict,0.00,fixed,44,0,44,42
+multiseed,ms_random170_train44_sel42,positive_random_matched,random,0.00,random,44,170,44,42
+multiseed,ms_full_train45,full,none,0.00,none,45,0,45,42
+multiseed,ms_strict_train45,positive,mode2_strict,0.00,fixed,45,0,45,42
+multiseed,ms_random170_train45_sel42,positive_random_matched,random,0.00,random,45,170,45,42
+multiseed,ms_full_train46,full,none,0.00,none,46,0,46,42
+multiseed,ms_strict_train46,positive,mode2_strict,0.00,fixed,46,0,46,42
+multiseed,ms_random170_train46_sel42,positive_random_matched,random,0.00,random,46,170,46,42

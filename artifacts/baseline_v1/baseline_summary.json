@@ -1,0 +1,120 @@
+{
+  "condition": "B2-Full clean v1 baseline",
+  "checkpoint": "CDEL_PIPELINE/baseline_v1/best_checkpoint.pth",
+  "best_epoch": 5,
+  "seed": 42,
+  "manifest_mapping_sha256": "dd11fed82c60a86a3bbb3704359147803c0267d498dde952fee64b4ad1a5456c",
+  "manifest_file_sha256": "2a28f92957fd644c1f2e0330bc17e3f7e9f3f18dfc31d0f7796848d9bac996de",
+  "counts": {
+    "train_pool": {
+      "frangi": 2506,
+      "easy": 856,
+      "hard": 1261,
+      "positive": 868
+    },
+    "train_selected": {
+      "frangi": 868,
+      "easy": 856,
+      "hard": 868,
+      "positive": 868
+    },
+    "val": {
+      "frangi": 538,
+      "easy": 162,
+      "hard": 250,
+      "positive": 165
+    },
+    "test": {
+      "frangi": 532,
+      "easy": 160,
+      "hard": 276,
+      "positive": 168
+    }
+  },
+  "validation_metrics": {
+    "all_negatives": {
+      "n": 1115,
+      "n_positive": 165,
+      "n_negative": 950,
+      "auc": 0.9768516746411482,
+      "fpr_at_90_sensitivity": 0.03894736842105263,
+      "achieved_sensitivity": 0.9030303030303031,
+      "threshold_at_90_sensitivity": 0.6267526745796204
+    },
+    "positive_vs_frangi": {
+      "n": 703,
+      "n_positive": 165,
+      "n_negative": 538,
+      "auc": 0.9863129435620143,
+      "fpr_at_90_sensitivity": 0.013011152416356878,
+      "achieved_sensitivity": 0.9030303030303031,
+      "threshold_at_90_sensitivity": 0.6267526745796204
+    },
+    "positive_vs_hard": {
+      "n": 415,
+      "n_positive": 165,
+      "n_negative": 250,
+      "auc": 0.9957939393939393,
+      "fpr_at_90_sensitivity": 0.0,
+      "achieved_sensitivity": 0.9151515151515152,
+      "threshold_at_90_sensitivity": 0.5538370609283447
+    },
+    "positive_vs_easy": {
+      "n": 327,
+      "n_positive": 165,
+      "n_negative": 162,
+      "auc": 0.9161990273101385,
+      "fpr_at_90_sensitivity": 0.18518518518518517,
+      "achieved_sensitivity": 0.9030303030303031,
+      "threshold_at_90_sensitivity": 0.6267526745796204
+    }
+  },
+  "test_metrics": {
+    "all_negatives": {
+      "n": 1136,
+      "n_positive": 168,
+      "n_negative": 968,
+      "auc": 0.9699183392365209,
+      "fpr_at_90_sensitivity": 0.06714876033057851,
+      "achieved_sensitivity": 0.9047619047619048,
+      "threshold_at_90_sensitivity": 0.42170068621635437
+    },
+    "positive_vs_frangi": {
+      "n": 700,
+      "n_positive": 168,
+      "n_negative": 532,
+      "auc": 0.9804981203007519,
+      "fpr_at_90_sensitivity": 0.020676691729323307,
+      "achieved_sensitivity": 0.9047619047619048,
+      "threshold_at_90_sensitivity": 0.42170068621635437
+    },
+    "positive_vs_hard": {
+      "n": 444,
+      "n_positive": 168,
+      "n_negative": 276,
+      "auc": 0.9888069358178054,
+      "fpr_at_90_sensitivity": 0.0036231884057971015,
+      "achieved_sensitivity": 0.9047619047619048,
+      "threshold_at_90_sensitivity": 0.42170068621635437
+    },
+    "positive_vs_easy": {
+      "n": 328,
+      "n_positive": 168,
+      "n_negative": 160,
+      "auc": 0.902157738095238,
+      "fpr_at_90_sensitivity": 0.33125,
+      "achieved_sensitivity": 0.9047619047619048,
+      "threshold_at_90_sensitivity": 0.42170068621635437
+    }
+  },
+  "test_used_for_model_selection": false,
+  "checkpoint_validation_metrics": {
+    "n": 1115,
+    "n_positive": 165,
+    "n_negative": 950,
+    "auc": 0.9768516746411482,
+    "fpr_at_90_sensitivity": 0.03894736842105263,
+    "achieved_sensitivity": 0.9030303030303031,
+    "threshold_at_90_sensitivity": 0.6267526745796204
+  }
+}

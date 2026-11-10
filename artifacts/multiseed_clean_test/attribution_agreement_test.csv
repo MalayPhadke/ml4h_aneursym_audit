@@ -1,0 +1,8 @@
+group,total_n,finite_paired_n,finite_paired_patients,spearman_rho,two_sided_p,patient_cluster_ci_2_5,patient_cluster_ci_97_5,bootstrap_resamples,undefined_policy
+positive_all,168,134,107,-0.19985136897900158,0.02060306739123291,-0.39576584913633156,0.009800955945672388,5000,exclude non-finite pairs before patient resampling
+positive_raw_zero,34,0,0,,,,,0,exclude non-finite pairs before patient resampling
+positive_nonzero,134,134,107,-0.19985136897900158,0.02060306739123291,-0.39576584913633156,0.009800955945672388,5000,exclude non-finite pairs before patient resampling
+pooled_negatives,968,967,266,0.4689051818806773,5.092267134500491e-54,0.40889495477937227,0.5271065383855171,5000,exclude non-finite pairs before patient resampling
+frangi,532,531,266,0.5219001711105548,1.9681984009770454e-38,0.4575940392147016,0.5837134569113304,5000,exclude non-finite pairs before patient resampling
+hard,276,276,103,0.37449751002411497,1.2857476844603736e-10,0.26120202502801504,0.4750323762379453,5000,exclude non-finite pairs before patient resampling
+easy,160,160,131,0.3823538028829251,6.05605445147493e-07,0.23898029075703478,0.5186216601387091,5000,exclude non-finite pairs before patient resampling

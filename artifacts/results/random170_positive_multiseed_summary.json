@@ -1,0 +1,65 @@
+{
+  "design": "five independent seeded selections/training runs; exactly 170 of 868 train positives removed per run; frozen validation and test IDs",
+  "runs": [
+    {
+      "seed": 42,
+      "condition_id": "b2_rand_pos170_seed42",
+      "best_epoch": 11,
+      "positive_removed": 170,
+      "negative_removed": 0,
+      "test_auc": 0.950760650334514,
+      "test_fpr_at_90_sensitivity": 0.1012396694214876,
+      "test_predictions": "/home/debarpanb/malay_work/root/workspace/JOURNAL/CDEL_PIPELINE/conditions/b2_rand_pos170_seed42/test_predictions.csv"
+    },
+    {
+      "seed": 43,
+      "condition_id": "b2_rand_pos170_seed43",
+      "best_epoch": 10,
+      "positive_removed": 170,
+      "negative_removed": 0,
+      "test_auc": 0.9704963597009052,
+      "test_fpr_at_90_sensitivity": 0.09504132231404959,
+      "test_predictions": "/home/debarpanb/malay_work/root/workspace/JOURNAL/CDEL_PIPELINE/conditions/b2_rand_pos170_seed43/test_predictions.csv"
+    },
+    {
+      "seed": 44,
+      "condition_id": "b2_rand_pos170_seed44",
+      "best_epoch": 6,
+      "positive_removed": 170,
+      "negative_removed": 0,
+      "test_auc": 0.966487111373475,
+      "test_fpr_at_90_sensitivity": 0.08161157024793389,
+      "test_predictions": "/home/debarpanb/malay_work/root/workspace/JOURNAL/CDEL_PIPELINE/conditions/b2_rand_pos170_seed44/test_predictions.csv"
+    },
+    {
+      "seed": 45,
+      "condition_id": "b2_rand_pos170_seed45",
+      "best_epoch": 10,
+      "positive_removed": 170,
+      "negative_removed": 0,
+      "test_auc": 0.9655831857536403,
+      "test_fpr_at_90_sensitivity": 0.05785123966942149,
+      "test_predictions": "/home/debarpanb/malay_work/root/workspace/JOURNAL/CDEL_PIPELINE/conditions/b2_rand_pos170_seed45/test_predictions.csv"
+    },
+    {
+      "seed": 46,
+      "condition_id": "b2_rand_pos170_seed46",
+      "best_epoch": 9,
+      "positive_removed": 170,
+      "negative_removed": 0,
+      "test_auc": 0.9568852075954348,
+      "test_fpr_at_90_sensitivity": 0.09607438016528926,
+      "test_predictions": "/home/debarpanb/malay_work/root/workspace/JOURNAL/CDEL_PIPELINE/conditions/b2_rand_pos170_seed46/test_predictions.csv"
+    }
+  ],
+  "aggregate": {
+    "test_auc": {
+      "mean": 0.9620425029515939,
+      "sample_sd": 0.008025530613775847
+    },
+    "test_fpr_at_90_sensitivity": {
+      "mean": 0.08636363636363636,
+      "sample_sd": 0.017510254394139346
+    }
+  }
+}

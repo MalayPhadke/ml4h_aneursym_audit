@@ -1,0 +1,9 @@
+{
+  "algorithm": "sha256",
+  "seed": 42,
+  "protocol": "StratifiedGroupKFold(20): folds 0-13 train, 14-16 val, 17-19 test",
+  "manifest_mapping_sha256": "dd11fed82c60a86a3bbb3704359147803c0267d498dde952fee64b4ad1a5456c",
+  "train_patch_ids_sha256": "26a0bd83e7e9bffd0e859fcc5331f10a4b7f4f951b59564a82f91536d561d1b6",
+  "val_patch_ids_sha256": "553c6d4ca73996af211b9d0d8b8455e24c4f076ec805bbaade1dd71982568784",
+  "test_patch_ids_sha256": "f9e8f98a2bcbe4eecdd8d22e0154cbb6ece531fd8b3ee1691d15578859d443c8"
+}

@@ -1,0 +1,73 @@
+{
+  "design": "Five paired training seeds (42--46). The random arm uses one fixed 170-positive subset selected with seed 42, separating training-seed variation from subset choice.",
+  "selection_hashes": {
+    "full": "df9ef6b9972dec868a185b538da746f649ab7f0bd27c66efeeda386e97cca6aa",
+    "strict": "e12d3fdef689df36b7a19907d96bd056ac3ed41abef9314310618c282f475869",
+    "random": "cc5c02c5d03b7c21a7ccef52f829570c5bb35be0ddfdf9909c1f39c3b66bfc1b"
+  },
+  "aggregate": {
+    "full": {
+      "test_auc": {
+        "mean": 0.9651650432900433,
+        "sample_sd": 0.0039137510697074855
+      },
+      "test_fpr90": {
+        "mean": 0.07293388429752067,
+        "sample_sd": 0.012038559613187783
+      },
+      "test_fpr95": {
+        "mean": 0.16260330578512397,
+        "sample_sd": 0.03902170065559041
+      }
+    },
+    "strict": {
+      "test_auc": {
+        "mean": 0.9616803177882723,
+        "sample_sd": 0.004391806673423552
+      },
+      "test_fpr90": {
+        "mean": 0.07644628099173553,
+        "sample_sd": 0.008826450150121418
+      },
+      "test_fpr95": {
+        "mean": 0.18884297520661156,
+        "sample_sd": 0.0364978037649759
+      }
+    },
+    "random": {
+      "test_auc": {
+        "mean": 0.9565144136166863,
+        "sample_sd": 0.005556360097053904
+      },
+      "test_fpr90": {
+        "mean": 0.0878099173553719,
+        "sample_sd": 0.011846430724359208
+      },
+      "test_fpr95": {
+        "mean": 0.21880165289256198,
+        "sample_sd": 0.04595307940121616
+      }
+    }
+  },
+  "outputs": [
+    "attribution_agreement_test.csv",
+    "bootstrap_membership_audit.csv",
+    "clean_test_bootstrap.csv",
+    "clean_test_bootstrap_summary.csv",
+    "clean_test_metrics.csv",
+    "fig_attribution_agreement_clean_positive.pdf",
+    "fig_multiseed_auc.pdf",
+    "fig_multiseed_fpr90.pdf",
+    "fig_original_vs_clean_test.pdf",
+    "finite_map_counts.csv",
+    "multiseed_summary.json",
+    "paired_auc_differences.csv",
+    "paired_difference_summary.csv",
+    "paired_fpr90_differences.csv",
+    "paired_fpr95_differences.csv",
+    "random_seed_subset_variance_sensitivity.csv",
+    "results_multiseed.csv",
+    "static_analysis_summary.json",
+    "table1_revised.csv"
+  ]
+}

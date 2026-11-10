@@ -1,0 +1,7 @@
+metric,design,n,mean,sample_sd,sample_variance,interpretation
+test_auc,fixed_subset_seed42_vary_training_seed,5,0.9565144136166864,0.005556360097053904,3.0873137528132865e-05,training-seed variation conditional on one random subset
+test_auc,co_varied_subset_and_training_seed,5,0.9620425029515939,0.008025530613775847,6.440914163265332e-05,combined variation; subset and training effects are not identifiable
+test_fpr90,fixed_subset_seed42_vary_training_seed,5,0.0878099173553719,0.01184643072435921,0.00014033792090704185,training-seed variation conditional on one random subset
+test_fpr90,co_varied_subset_and_training_seed,5,0.08636363636363638,0.017510254394139346,0.00030660900894747623,combined variation; subset and training effects are not identifiable
+test_fpr95,fixed_subset_seed42_vary_training_seed,5,0.21880165289256198,0.04595307940121616,0.0021116855064544767,training-seed variation conditional on one random subset
+test_fpr95,co_varied_subset_and_training_seed,5,0.18987603305785122,0.060803155912076204,0.0036970237688682475,combined variation; subset and training effects are not identifiable
