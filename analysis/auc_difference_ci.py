@@ -12,7 +12,7 @@ import numpy as np
 from scipy.stats import rankdata
 
 
-from cdel.paths import PIPELINE_ROOT
+from audit.paths import PIPELINE_ROOT
 
 PIPELINE = PIPELINE_ROOT
 

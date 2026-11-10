@@ -61,7 +61,7 @@
       "within_tolerance": true,
       "reason_for_nonzero_difference": "GradCAM and IG ran with different batch sizes and on different GPU models; both used the identical checkpoint."
     },
-    "unified_output": "CDEL_PIPELINE/phase0_gates/attribution_per_patch.csv",
+    "unified_output": "outputs/phase0_gates/attribution_per_patch.csv",
     "unified_output_sha256": "4369142346d21e02d0cda4e7c115322aed884c09c95ffbd42f01028a4d8ca9c2"
   },
   "IG_faithfulness": {
@@ -91,7 +91,7 @@
       },
       "manifest_mapping_sha256": "dd11fed82c60a86a3bbb3704359147803c0267d498dde952fee64b4ad1a5456c",
       "manifest_file_sha256": "2a28f92957fd644c1f2e0330bc17e3f7e9f3f18dfc31d0f7796848d9bac996de",
-      "checkpoint": "CDEL_PIPELINE/baseline_v1/best_checkpoint.pth",
+      "checkpoint": "outputs/baseline_v1/best_checkpoint.pth",
       "checkpoint_sha256": "753b880a408b5d7f46fb6e1cc36f376c20e0cb9fe3291c08f7363c0a6f0eadf5",
       "target_class": 1,
       "ig_steps": 100,
@@ -127,7 +127,7 @@
       "n_all_zero_in_raw_npz_resized_array": 238,
       "all_exact_zero_radial_slope_raw_inputs_are_all_zero": true,
       "all_exact_zero_radial_slope_inputs_are_all_zero_after_preprocessing": true,
-      "artifact": "CDEL_PIPELINE/phase0_gates/exact_zero_radial_slope_preprocessing_audit.csv",
+      "artifact": "outputs/phase0_gates/exact_zero_radial_slope_preprocessing_audit.csv",
       "interpretation": "The exact-zero point mass is raw input corruption/degeneracy: every NPZ resized array is identically zero even before preprocessing. It is not evidence that a nonblank model input induced zero gradients."
     },
     "groups": {

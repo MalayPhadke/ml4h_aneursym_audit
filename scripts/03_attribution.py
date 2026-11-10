@@ -22,7 +22,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-from cdel.core import (
+from audit.core import (
     HASHES_PATH,
     MANIFEST_PATH,
     PATCH_SIZE,
@@ -69,7 +69,7 @@ def configure_logging(out_dir: Path, method: str) -> logging.Logger:
         ],
         force=True,
     )
-    return logging.getLogger(f"cdel_{method}")
+    return logging.getLogger(f"audit_{method}")
 
 
 def target_last_conv(model: nn.Module) -> nn.Conv3d:

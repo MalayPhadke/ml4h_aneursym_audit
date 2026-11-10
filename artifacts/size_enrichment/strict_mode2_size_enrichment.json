@@ -2,7 +2,7 @@
   "status": "PASS_ENRICHMENT_REPRODUCED_WITH_CORRECTED_EFFECT_SIZE",
   "primary_question": "Are explicitly linked strict raw-zero Mode-2 positive patches enriched for estimated dome size <3 mm?",
   "identity_contract": {
-    "attribution": "CDEL_PIPELINE/phase0_gates/attribution_per_patch.csv",
+    "attribution": "outputs/phase0_gates/attribution_per_patch.csv",
     "size_table": "aneurysm_size_estimates_v3.csv",
     "join": "Path(attribution.patch_id).stem == size.patch_id",
     "positional_linkage_used": false,

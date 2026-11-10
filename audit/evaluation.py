@@ -1,4 +1,4 @@
-"""Frozen-test evaluation helpers shared by all CDEL training conditions."""
+"""Frozen-test evaluation helpers shared by all AUDIT training conditions."""
 
 from __future__ import annotations
 
@@ -8,7 +8,7 @@ from pathlib import Path
 
 import numpy as np
 
-from cdel.core import binary_metrics
+from audit.core import binary_metrics
 
 
 def read_rows(path: Path) -> list[dict]:

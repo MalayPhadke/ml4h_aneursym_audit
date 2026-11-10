@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Train one frozen-split CDEL curation/baseline condition from scratch."""
+"""Train one frozen-split AUDIT curation/baseline condition from scratch."""
 
 from __future__ import annotations
 
@@ -16,9 +16,9 @@ import numpy as np
 import torch
 import torch.nn as nn
 
-from cdel.evaluation import evaluate_rows, metrics_by_negative_class
-from cdel.paths import CONDITION_PLAN_DIR
-from cdel.core import (
+from audit.evaluation import evaluate_rows, metrics_by_negative_class
+from audit.paths import CONDITION_PLAN_DIR
+from audit.core import (
     HASHES_PATH,
     MANIFEST_PATH,
     PIPELINE_ROOT,
@@ -61,7 +61,7 @@ def configure_logging(out_dir: Path) -> logging.Logger:
         handlers=[logging.FileHandler(out_dir / "training.log"), logging.StreamHandler()],
         force=True,
     )
-    return logging.getLogger("cdel_condition")
+    return logging.getLogger("audit_condition")
 
 
 def get_condition(path: Path, index: int) -> dict:

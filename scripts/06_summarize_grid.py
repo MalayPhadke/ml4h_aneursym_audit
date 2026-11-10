@@ -12,9 +12,9 @@ from pathlib import Path
 
 import numpy as np
 
-from cdel.evaluation import metrics_by_negative_class
-from cdel.paths import CONDITION_PLAN_DIR
-from cdel.core import PIPELINE_ROOT, json_dump, write_csv
+from audit.evaluation import metrics_by_negative_class
+from audit.paths import CONDITION_PLAN_DIR
+from audit.core import PIPELINE_ROOT, json_dump, write_csv
 
 
 DEFAULT_CONDITION_ROOT = PIPELINE_ROOT / "conditions"
@@ -290,7 +290,7 @@ def main() -> None:
         report["followup_conditions"] = followups
         json_dump(args.out_dir / "grid_summary.json", report)
     markdown = [
-        "# CDEL condition-grid results",
+        "# AUDIT condition-grid results",
         "",
         f"Completed conditions: {len(found)}; missing initial conditions: {len(missing)}.",
         "",

@@ -1,5 +1,5 @@
 #!/bin/bash
-# Full pipeline, in order. Needs the patches (CDEL_DATA_ROOT) and a GPU.
+# Full pipeline, in order. Needs the patches (AUDIT_DATA_ROOT) and a GPU.
 # Run a single stage on its own by copying one line.
 set -euo pipefail
 cd "$(dirname "$0")"
@@ -21,4 +21,4 @@ for plan in phase3_5_conditions n1_full_condition random170_positive_condition \
 done
 python scripts/06_summarize_grid.py                      # grid table + follow-up plan
 
-CDEL_OUT_ROOT="${CDEL_OUT_ROOT:-$PWD/outputs}" bash reproduce_tables.sh
+AUDIT_OUT_ROOT="${AUDIT_OUT_ROOT:-$PWD/outputs}" bash reproduce_tables.sh

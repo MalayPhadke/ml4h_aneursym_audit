@@ -1,4 +1,4 @@
-"""Shared data, model, metrics, and attribution utilities for CDEL phases."""
+"""Shared data, model, metrics, and attribution utilities for AUDIT phases."""
 
 from __future__ import annotations
 
@@ -20,7 +20,7 @@ from torch.utils.data import DataLoader, Dataset
 from monai.networks.nets import resnet10
 
 
-from cdel.paths import PATCH_ROOT, PIPELINE_ROOT, resolve_patch_path
+from audit.paths import PATCH_ROOT, PIPELINE_ROOT, resolve_patch_path
 
 MANIFEST_PATH = PIPELINE_ROOT / "manifests" / "split_manifest.csv"
 HASHES_PATH = PIPELINE_ROOT / "manifests" / "split_hashes.json"

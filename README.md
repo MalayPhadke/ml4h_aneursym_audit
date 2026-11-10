@@ -1,4 +1,4 @@
-# CDEL: auditing attribution-guided data curation for aneurysm detection (CTA)
+# ML4H aneurysm audit: auditing attribution-guided data curation for aneurysm detection (CTA)
 
 Code, frozen split, per-run predictions and analysis scripts for the ML4H 2026 (Findings) paper (`paper/paper.tex`).
 
@@ -18,7 +18,7 @@ Headline findings:
 ## Layout
 
 ```
-cdel/                 shared code
+audit/                shared code
   paths.py            all paths (env-var overridable)
   core.py             model, dataset, preprocessing, manifest loader, radial attribution maps
   evaluation.py       AUC, FPR@sensitivity, per-negative-class metrics
@@ -29,7 +29,6 @@ data/                 aneurysm_size_estimates_v3.csv (lesion sizes); put patches
 artifacts/            frozen split, per-run predictions, result files (~40 MB)
 run_pipeline.sh       run everything
 reproduce_tables.sh   regenerate the paper's tables from artifacts/
-verify_hashes.py      check artifacts against the paper's SHA256 table
 paper/paper.tex
 ```
 
@@ -42,8 +41,8 @@ export PYTHONPATH=$PWD              # the shell scripts do this for you
 
 | Env var | Default | Meaning |
 |---|---|---|
-| `CDEL_DATA_ROOT` | `./data` | must contain `patches/` |
-| `CDEL_OUT_ROOT` | `./outputs` | where pipeline stages write |
+| `AUDIT_DATA_ROOT` | `./data` | must contain `patches/` |
+| `AUDIT_OUT_ROOT` | `./outputs` | where pipeline stages write |
 
 ## Dataset
 
@@ -71,7 +70,7 @@ Each file is an `.npz` with key `resized` (64×64×64, HU), named `<SeriesInstan
 | Test | 267 | 168 | 532 | 276 | 160 | 1,136 |
 
 - **Lesion size:** `data/aneurysm_size_estimates_v3.csv` has one row per positive patch. Dome size is the maximum of the annotated in-plane diameter and the z-extent in mm (NIfTI spacing, DICOM slice positions). For single-slice annotations (84%) it reduces to one slice thickness, so it is coarse. "Small" means < 3 mm.
-- **Manifest paths:** `artifacts/manifests/split_manifest.csv` keeps the original absolute paths so its hash matches the paper. The loader re-roots anything after `/patches/` onto `CDEL_DATA_ROOT`.
+- **Manifest paths:** `artifacts/manifests/split_manifest.csv` keeps the original absolute paths. The loader re-roots anything after `/patches/` onto `AUDIT_DATA_ROOT`.
 
 ## Pipeline (`run_pipeline.sh`)
 
@@ -93,11 +92,10 @@ Each condition in `configs/condition_plan/*.csv` is one training run, with colum
 CPU only, no patches needed:
 
 ```bash
-python verify_hashes.py       # the paper's SHA256 table (13/13 should be OK)
 bash reproduce_tables.sh      # regenerates tables from artifacts/ (on a scratch copy)
 ```
 
-Full re-run (patches + GPU): `export CDEL_DATA_ROOT=/path/to/data && bash run_pipeline.sh`. GPU kernels are not bit-identical across hardware, so expect metrics to agree closely but not necessarily to the last digit.
+Full re-run (patches + GPU): `export AUDIT_DATA_ROOT=/path/to/data && bash run_pipeline.sh`. GPU kernels are not bit-identical across hardware, so expect metrics to agree closely but not necessarily to the last digit.
 
 ## Experiments and where the evidence is
 
@@ -142,4 +140,3 @@ The paired strict − full AUC difference is −0.0035 (bootstrap 95% CI −0.00
 - **CAS / recentering experiments:** these need source volumes and a candidate-ID correspondence between patch sets that doesn't exist. They are not reported in the paper.
 - **Model checkpoints:** not shipped.
 
-`random170_positive_multiseed_summary.json` embeds absolute paths, so regenerating it elsewhere changes its hash while every metric stays identical.

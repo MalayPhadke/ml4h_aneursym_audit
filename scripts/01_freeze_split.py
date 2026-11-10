@@ -2,7 +2,7 @@
 """Create the one-time, patient-grouped v1 train/val/test split manifest.
 
 The manifest is the canonical patch-ID -> split-name mapping for all later
-CDEL experiments.  Splitting is performed at patient/scan UID level so that
+AUDIT experiments.  Splitting is performed at patient/scan UID level so that
 patches from the same scan never appear in different splits.  Twenty seeded,
 stratified group folds are combined as 14 train, 3 validation, and 3 test
 folds (approximately 70/15/15).
@@ -23,7 +23,7 @@ import numpy as np
 from sklearn.model_selection import StratifiedGroupKFold
 
 
-from cdel.paths import PATCH_ROOT, PIPELINE_ROOT
+from audit.paths import PATCH_ROOT, PIPELINE_ROOT
 
 DEFAULT_OUT_DIR = PIPELINE_ROOT / "manifests"
 

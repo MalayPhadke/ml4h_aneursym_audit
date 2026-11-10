@@ -24,7 +24,7 @@ import numpy as np
 from scipy.stats import rankdata, spearmanr
 
 
-from cdel.paths import PIPELINE_ROOT
+from audit.paths import PIPELINE_ROOT
 
 PIPELINE = PIPELINE_ROOT
 ATTRIBUTION = PIPELINE / "phase0_gates" / "attribution_per_patch.csv"

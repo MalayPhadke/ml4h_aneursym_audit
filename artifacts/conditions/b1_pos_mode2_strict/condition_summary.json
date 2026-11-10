@@ -10,7 +10,7 @@
   },
   "gpu_model": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
   "best_epoch": 12,
-  "checkpoint": "CDEL_PIPELINE/conditions/b1_pos_mode2_strict/best_checkpoint.pth",
+  "checkpoint": "outputs/conditions/b1_pos_mode2_strict/best_checkpoint.pth",
   "manifest_mapping_sha256": "dd11fed82c60a86a3bbb3704359147803c0267d498dde952fee64b4ad1a5456c",
   "test_patch_ids_sha256": "f9e8f98a2bcbe4eecdd8d22e0154cbb6ece531fd8b3ee1691d15578859d443c8",
   "train_selection_sha256": "e12d3fdef689df36b7a19907d96bd056ac3ed41abef9314310618c282f475869",

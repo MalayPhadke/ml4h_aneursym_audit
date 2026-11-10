@@ -8,7 +8,7 @@ import statistics
 from pathlib import Path
 
 
-from cdel.paths import PIPELINE_ROOT
+from audit.paths import PIPELINE_ROOT
 
 PIPELINE = PIPELINE_ROOT
 SEEDS = (42, 43, 44, 45, 46)

@@ -10,8 +10,8 @@ from pathlib import Path
 
 from scipy.stats import fisher_exact
 
-from cdel.paths import SIZE_CSV
-from cdel.core import PIPELINE_ROOT, json_dump, write_csv
+from audit.paths import SIZE_CSV
+from audit.core import PIPELINE_ROOT, json_dump, write_csv
 
 
 ATTRIBUTION = PIPELINE_ROOT / "phase0_gates" / "attribution_per_patch.csv"

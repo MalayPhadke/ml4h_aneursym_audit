@@ -13,8 +13,8 @@ from pathlib import Path
 
 import numpy as np
 
-from cdel.paths import resolve_patch_path
-from cdel.core import (
+from audit.paths import resolve_patch_path
+from audit.core import (
     HASHES_PATH,
     MANIFEST_PATH,
     PIPELINE_ROOT,

@@ -13,7 +13,7 @@ import numpy as np
 import torch
 import torch.nn as nn
 
-from cdel.core import (
+from audit.core import (
     HASHES_PATH,
     MANIFEST_PATH,
     PIPELINE_ROOT,
@@ -44,7 +44,7 @@ def configure_logging(out_dir: Path) -> logging.Logger:
         ],
         force=True,
     )
-    return logging.getLogger("cdel_train_v1")
+    return logging.getLogger("audit_train_v1")
 
 
 def balanced_training_subset(train_records: list[dict], seed: int) -> list[dict]:

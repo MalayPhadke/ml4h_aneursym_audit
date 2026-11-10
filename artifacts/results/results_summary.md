@@ -1,4 +1,4 @@
-# CDEL condition-grid results
+# AUDIT condition-grid results
 
 Completed conditions: 32; missing initial conditions: 0.
 

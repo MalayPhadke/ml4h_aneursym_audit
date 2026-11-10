@@ -9,7 +9,7 @@
       "negative_removed": 0,
       "test_auc": 0.950760650334514,
       "test_fpr_at_90_sensitivity": 0.1012396694214876,
-      "test_predictions": "/home/debarpanb/malay_work/root/workspace/JOURNAL/CDEL_PIPELINE/conditions/b2_rand_pos170_seed42/test_predictions.csv"
+      "test_predictions": "/home/debarpanb/malay_work/root/workspace/JOURNAL/outputs/conditions/b2_rand_pos170_seed42/test_predictions.csv"
     },
     {
       "seed": 43,
@@ -19,7 +19,7 @@
       "negative_removed": 0,
       "test_auc": 0.9704963597009052,
       "test_fpr_at_90_sensitivity": 0.09504132231404959,
-      "test_predictions": "/home/debarpanb/malay_work/root/workspace/JOURNAL/CDEL_PIPELINE/conditions/b2_rand_pos170_seed43/test_predictions.csv"
+      "test_predictions": "/home/debarpanb/malay_work/root/workspace/JOURNAL/outputs/conditions/b2_rand_pos170_seed43/test_predictions.csv"
     },
     {
       "seed": 44,
@@ -29,7 +29,7 @@
       "negative_removed": 0,
       "test_auc": 0.966487111373475,
       "test_fpr_at_90_sensitivity": 0.08161157024793389,
-      "test_predictions": "/home/debarpanb/malay_work/root/workspace/JOURNAL/CDEL_PIPELINE/conditions/b2_rand_pos170_seed44/test_predictions.csv"
+      "test_predictions": "/home/debarpanb/malay_work/root/workspace/JOURNAL/outputs/conditions/b2_rand_pos170_seed44/test_predictions.csv"
     },
     {
       "seed": 45,
@@ -39,7 +39,7 @@
       "negative_removed": 0,
       "test_auc": 0.9655831857536403,
       "test_fpr_at_90_sensitivity": 0.05785123966942149,
-      "test_predictions": "/home/debarpanb/malay_work/root/workspace/JOURNAL/CDEL_PIPELINE/conditions/b2_rand_pos170_seed45/test_predictions.csv"
+      "test_predictions": "/home/debarpanb/malay_work/root/workspace/JOURNAL/outputs/conditions/b2_rand_pos170_seed45/test_predictions.csv"
     },
     {
       "seed": 46,
@@ -49,7 +49,7 @@
       "negative_removed": 0,
       "test_auc": 0.9568852075954348,
       "test_fpr_at_90_sensitivity": 0.09607438016528926,
-      "test_predictions": "/home/debarpanb/malay_work/root/workspace/JOURNAL/CDEL_PIPELINE/conditions/b2_rand_pos170_seed46/test_predictions.csv"
+      "test_predictions": "/home/debarpanb/malay_work/root/workspace/JOURNAL/outputs/conditions/b2_rand_pos170_seed46/test_predictions.csv"
     }
   ],
   "aggregate": {
