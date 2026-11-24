@@ -1,21 +1,69 @@
-# ML4H aneurysm audit: auditing attribution-guided data curation for aneurysm detection (CTA)
+# Leakage-Safe Auditing of Attribution-Driven Data Curation in Medical Imaging
 
-Code, frozen split, per-run predictions and analysis scripts for the ML4H 2026 (Findings) paper (`paper/paper.tex`).
+[![arXiv](https://img.shields.io/badge/arXiv-2611.31096-b31b1b.svg)](https://arxiv.org/abs/2611.31096)
+![ML4H 2026](https://img.shields.io/badge/ML4H%202026-Findings%20Track-2F5597.svg)
+[![Poster](https://img.shields.io/badge/Poster-PNG-0F2847.svg)](poster/ML4H2026_poster.png)
+[![Paper PDF](https://img.shields.io/badge/Paper-PDF-555555.svg)](paper/ML4H2026_leakage_safe_attribution_audit.pdf)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-The paper audits a historical claim that attribution anomalies identify harmful training patches. Three claims are tested separately:
+**Malay Phadke, Akshay Gokhale** · Sardar Patel Institute of Technology, Mumbai, India
+*Machine Learning for Health (ML4H) 2026, Findings Track*
 
-1. **Identification:** is an anomaly linked, by immutable patch ID, to a direct quality criterion?
-2. **Harm:** is the anomaly harmful to the model?
-3. **Utility:** does deleting the anomalous patches beat full-data training and budget-matched random deletion?
+> **TL;DR:** Detecting corrupted training data does not guarantee that deleting it improves the model.
+> In a CTA intracranial-aneurysm pipeline, we found 232 positive patches that are all-zero arrays (genuine corruption).
+> Deleting the 170 in the training set did **not** improve held-out AUC across five paired seeds.
+> Anomaly is evidence for inspection, not sufficient evidence for deletion.
 
-Headline findings:
+<p align="center">
+  <a href="poster/ML4H2026_poster.png"><img src="poster/ML4H2026_poster_preview.png" width="560" alt="ML4H 2026 poster"></a>
+  <br><sub>Click for the full-resolution poster (2880 × 4320).</sub>
+</p>
 
-- 232 of 1,201 positive patches are identically zero arrays ("raw-zero").
-- They are enriched among small lesions: 87.9% vs 76.2% with dome size < 3 mm (OR 2.28, Fisher p = 5.7e-5).
-- Targeted deletion does not beat full-data training (table below).
-- GradCAM++ and Integrated Gradients disagree on positives (Spearman ρ = −0.20, n = 134).
+## Resources
 
-## Layout
+| | |
+|---|---|
+| 📄 Paper (arXiv) | <https://arxiv.org/abs/2611.31096> |
+| 📑 Camera-ready PDF | [`paper/ML4H2026_leakage_safe_attribution_audit.pdf`](paper/ML4H2026_leakage_safe_attribution_audit.pdf) |
+| 🖼️ Poster | [`poster/ML4H2026_poster.png`](poster/ML4H2026_poster.png) · editable [`.pptx`](poster/ML4H2026_poster.pptx) |
+| 🔁 Reproduce all tables (CPU only, no data needed) | `bash reproduce_tables.sh` |
+
+## The question: three claims, tested separately
+
+Attribution-guided curation usually chains three inferences. This repo tests each one on its own:
+
+1. **Identification:** is an anomaly linked, by immutable patch ID, to a direct quality criterion? → *tested*
+2. **Harm:** is the anomaly harmful to the model? → *open; not established here*
+3. **Utility:** does deleting the anomalous patches beat full-data training and budget-matched random deletion? → *tested*
+
+## Key findings
+
+- **The anomaly is real, but smaller than first claimed.** 232 of 1,201 positive patches are identically zero arrays ("raw-zero"). The historical 321-patch "attention-failure" subgroup does not hold up: only 232 of its records are verified raw-zero.
+- **Attribution is central in every class.** Under patient-disjoint evaluation, GradCAM++ radial attribution ratio (RAR) medians are below 1 for all four patch classes (Table 1). This reverses the historical classwise pattern.
+- **Raw-zero patches skew towards small lesions:** 87.9% vs 76.2% have dome size < 3 mm (OR 2.28, Fisher p = 5.7 × 10⁻⁵).
+- **Attribution methods disagree on positives.** GradCAM++ vs Integrated Gradients gives Spearman ρ = −0.200 on test positives (n = 134), but ρ = 0.469 on negatives (n = 967).
+- **Deleting the corruption does not help.** See the table below. A budget-matched random-removal control confirms the result is not an artifact of reduced training size.
+
+### Main result: deletion vs. full data
+
+Test set (n = 1,136; 168 positives). Mean ± sample SD over 5 paired training seeds (42–46).
+
+| Condition | AUC ↑ | FPR@90 ↓ |
+|---|---|---|
+| Full data | **0.9652 ± 0.0039** | **0.0729 ± 0.0120** |
+| Strict zero removal (170 positives) | 0.9617 ± 0.0044 | 0.0764 ± 0.0088 |
+| Matched random removal (170, fixed subset) | 0.9565 ± 0.0056 | 0.0878 ± 0.0118 |
+
+- Paired strict − full ΔAUC = **−0.0035** (paired-seed bootstrap 95% CI −0.0082 to 0.0007). The interval includes zero, so targeted deletion shows no reproducible advantage.
+- **Clean-test check** (seed 42; the 34 raw-zero test positives removed, n = 1,102):
+  - The strict − full AUC gap widens from −0.0082 to −0.0103 (95% CI −0.0239 to 0.0006).
+  - The strict model's FPR@90 nearly doubles (0.0671 → 0.1167), while the full model's stays stable (0.0661 → 0.0692).
+
+Per-seed values are in `artifacts/multiseed_clean_test/results_multiseed.csv`, and clean-test metrics in `artifacts/multiseed_clean_test/clean_test_metrics.csv`.
+
+---
+
+## Repository layout
 
 ```
 audit/                shared code
@@ -27,9 +75,11 @@ analysis/             paper tables computed from per-run predictions (CPU only)
 configs/condition_plan/   CSV definition of every training condition
 data/                 aneurysm_size_estimates_v3.csv (lesion sizes); put patches/ here
 artifacts/            frozen split, per-run predictions, result files (~40 MB)
+paper/                camera-ready PDF
+poster/               ML4H 2026 poster (PNG, preview, editable PPTX)
 run_pipeline.sh       run everything
 reproduce_tables.sh   regenerate the paper's tables from artifacts/
-paper/paper.tex
+CITATION.cff          citation metadata (GitHub "Cite this repository")
 ```
 
 ## Setup
@@ -44,11 +94,21 @@ export PYTHONPATH=$PWD              # the shell scripts do this for you
 | `AUDIT_DATA_ROOT` | `./data` | must contain `patches/` |
 | `AUDIT_OUT_ROOT` | `./outputs` | where pipeline stages write |
 
+## Reproducing the paper
+
+CPU only, no patches needed:
+
+```bash
+bash reproduce_tables.sh      # regenerates tables from artifacts/ (on a scratch copy)
+```
+
+Full re-run (patches + GPU): `export AUDIT_DATA_ROOT=/path/to/data && bash run_pipeline.sh`. GPU kernels are not bit-identical across hardware, so expect metrics to agree closely but not necessarily to the last digit.
+
 ## Dataset
 
 Source: RSNA 2025 Intracranial Aneurysm Detection Challenge (multi-centre CTA). **The CTA volumes and patches are not redistributed**; obtain them from the challenge.
 
-Expected layout, 7,742 patches of 64³ voxels from 1,793 patient/scan groups:
+Expected layout: 7,742 patches of 64³ voxels from 1,793 patient/scan groups.
 
 ```
 data/patches/dataset_v1/
@@ -83,19 +143,12 @@ Each file is an `.npz` with key `resized` (64×64×64, HU), named `<SeriesInstan
 | `05_train_condition.py` | trains one row of a condition CSV, selecting on validation only |
 | `06_summarize_grid.py` | aggregates the grid, picks the best guided condition on validation, writes the follow-up plan |
 
-Model and training: 64³ input, 20 epochs, Adam (lr 1e-4, weight decay 1e-5), batch 16, unweighted cross-entropy, no augmentation. The training set is the 3,460-patch balanced subset recorded in `train_selection.csv`. The radial attribution ratio (RAR) is mean outer-sphere attribution divided by mean inner-sphere attribution; RAR < 1 means central.
+**Model and training:**
+- 64³ input, 20 epochs, Adam (lr 1e-4, weight decay 1e-5), batch 16, unweighted cross-entropy, no augmentation.
+- The training set is the 3,460-patch balanced subset recorded in `train_selection.csv`.
+- The radial attribution ratio (RAR) is mean outer-sphere attribution divided by mean inner-sphere attribution; RAR < 1 means central.
 
 Each condition in `configs/condition_plan/*.csv` is one training run, with columns `phase, condition_id, mode, score, negative_fraction, direction, seed, …`. Row counts: `phase3_5_conditions` 27, `followup_conditions` 3, `n1_full_condition` 1, `random170_positive_condition` 1, `random170_positive_multiseed` 4, `paired_multiseed_missing` 12. To run a single row, call `scripts/05_train_condition.py --conditions <csv> --condition-index <n>`.
-
-## Reproducing the paper
-
-CPU only, no patches needed:
-
-```bash
-bash reproduce_tables.sh      # regenerates tables from artifacts/ (on a scratch copy)
-```
-
-Full re-run (patches + GPU): `export AUDIT_DATA_ROOT=/path/to/data && bash run_pipeline.sh`. GPU kernels are not bit-identical across hardware, so expect metrics to agree closely but not necessarily to the last digit.
 
 ## Experiments and where the evidence is
 
@@ -106,7 +159,7 @@ Full re-run (patches + GPU): `export AUDIT_DATA_ROOT=/path/to/data && bash run_p
 | Full vs strict vs random, 5 paired seeds (Table 2, App. F) | `paired_multiseed_missing.csv` + seed-42 runs | `multiseed_clean_test/results_multiseed.csv`, `multiseed_summary.json` |
 | Strict − full AUC bootstrap | `analysis/auc_difference_ci.py` | `results/full_vs_strict_auc_bootstrap.json` |
 | 5 random 170-positive subsets (App. F) | `random170_positive_multiseed.csv` | `results/random170_positive_multiseed_summary.json` |
-| Clean-test robustness (drop 34 raw-zero test positives) | `analysis/clean_test_analyses.py` | `multiseed_clean_test/clean_test_metrics.csv` |
+| Clean-test robustness (drop 34 raw-zero test positives) | `analysis/clean_test_analyses.py` | `multiseed_clean_test/clean_test_metrics.csv`, `clean_test_bootstrap_summary.csv` |
 | GradCAM++ vs IG agreement | `analysis/clean_test_analyses.py` | `multiseed_clean_test/attribution_agreement_test.csv` |
 | Curation grid (27 runs) | `phase3_5_conditions.csv` | `results/condition_results.csv`, `grid_summary.json` |
 
@@ -122,21 +175,34 @@ The follow-ups are the combined condition and seeds 43 and 44 of `b1_neg_radial_
 
 `artifacts/conditions/<id>/` holds each run's summary, training history and test predictions; checkpoints are not shipped. Paired-seed runs are `ms_*`; in the random arm the removed subset is fixed (selection seed 42) and only the training seed varies.
 
-## Results
-
-Test set (n = 1,136; 168 positives); mean ± sample SD over 5 paired training seeds (42–46).
-
-| Condition | AUC | FPR@90 |
-|---|---|---|
-| Full data | **0.9652 ± 0.0039** | **0.0729 ± 0.0120** |
-| Strict zero removal (170 positives) | 0.9617 ± 0.0044 | 0.0764 ± 0.0088 |
-| Matched random removal (170, fixed subset) | 0.9565 ± 0.0056 | 0.0878 ± 0.0118 |
-
-The paired strict − full AUC difference is −0.0035 (bootstrap 95% CI −0.0082 to 0.0007). Per-seed values are in `artifacts/multiseed_clean_test/results_multiseed.csv`.
-
 ## Not included
 
 - **Patch extraction:** the Frangi extraction code and source CTA volumes are not in this repo. The upstream cause of the zero arrays cannot be localised without them.
 - **CAS / recentering experiments:** these need source volumes and a candidate-ID correspondence between patch sets that doesn't exist. They are not reported in the paper.
 - **Model checkpoints:** not shipped.
 
+## Citation
+
+If you use this code or build on the audit, please cite:
+
+```bibtex
+@misc{phadke2026leakagesafe,
+  title         = {Leakage-Safe Auditing of Attribution-Driven Data Curation in Medical Imaging},
+  author        = {Phadke, Malay and Gokhale, Akshay},
+  year          = {2026},
+  eprint        = {2611.31096},
+  archivePrefix = {arXiv},
+  note          = {Machine Learning for Health (ML4H) 2026, Findings Track},
+  url           = {https://arxiv.org/abs/2611.31096}
+}
+```
+
+## License
+
+Code: [MIT](LICENSE).
+The RSNA 2025 challenge data is subject to its own terms and is not redistributed here.
+
+## Contact
+
+Malay Phadke (malay.phadke@spit.ac.in) · Akshay Gokhale (akshay.gokhale22@spit.ac.in)
+Questions and issues are welcome via GitHub Issues.
