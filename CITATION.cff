@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper below."
+title: "Leakage-Safe Auditing of Attribution-Driven Data Curation in Medical Imaging"
+authors:
+  - family-names: Phadke
+    given-names: Malay
+    affiliation: Sardar Patel Institute of Technology, Mumbai, India
+  - family-names: Gokhale
+    given-names: Akshay
+    affiliation: Sardar Patel Institute of Technology, Mumbai, India
+license: MIT
+repository-code: "https://github.com/MalayPhadke/ml4h_aneursym_audit"
+url: "https://arxiv.org/abs/2611.31096"
+preferred-citation:
+  type: article
+  title: "Leakage-Safe Auditing of Attribution-Driven Data Curation in Medical Imaging"
+  authors:
+    - family-names: Phadke
+      given-names: Malay
+    - family-names: Gokhale
+      given-names: Akshay
+  year: 2026
+  identifiers:
+    - type: other
+      value: "arXiv:2611.31096"
+      description: arXiv preprint
+  url: "https://arxiv.org/abs/2611.31096"
+  notes: "Machine Learning for Health (ML4H) 2026, Findings Track"
